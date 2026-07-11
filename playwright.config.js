@@ -34,7 +34,11 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    headless: true,
+    headless: !!process.env.CI,
+    /* 
+    here in local that !!process.env is not defined so for local tests it opens browser. 
+    if i push this to gitub ,i don't create process.env.CI. GitHub Actions sets it automatically. i just use it in the config.
+    */
   },
 
   /* Configure projects for major browsers */
