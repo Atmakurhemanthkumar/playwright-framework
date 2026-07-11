@@ -22,11 +22,14 @@ module.exports = defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
+  /* Timeout for each test */
+  timeout: 30000,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html'],
-    ['github']
-],
+    ['github'],
+    ['junit', { outputFile: 'test-results/junit.xml' }],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -35,9 +38,11 @@ module.exports = defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     headless: !!process.env.CI,
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
     /* 
     here in local that !!process.env is not defined so for local tests it opens browser. 
-    if i push this to gitub ,i don't create process.env.CI. GitHub Actions sets it automatically. i just use it in the config.
+    if i push this to github ,i don't create process.env.CI. GitHub Actions sets it automatically. i just use it in the config.
     */
   },
 
@@ -80,10 +85,9 @@ module.exports = defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  webServer: process.env.CI ? undefined : {
+    command: 'npm run start',
+    url: 'http://localhost:3000',
+    reuseExistingServer: !process.env.CI,
+  },
 });
-
