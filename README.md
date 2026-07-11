@@ -2,7 +2,7 @@
 
 Industry-standard test automation framework built with **Playwright** and **JavaScript**.
 
-![Playwright Tests](https://github.com/YOUR-USERNAME/playwright-framework/actions/workflows/playwright.yml/badge.svg)
+![Playwright Tests](https://github.com/Atmakurhemanthkumar/playwright-framework/actions/workflows/playwright.yml/badge.svg)
 
 ## 🛠️ Tech Stack
 
@@ -108,7 +108,7 @@ Tests run on three browsers:
 
 ## 👤 Author
 
-[Your Name]
+Atmakur Hemanth Kumar
 
 ## 📝 License
 
