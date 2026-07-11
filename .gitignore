@@ -16,3 +16,8 @@ tests\multipletabs.spec.js
 tests\tables.spec.js
 tests\waits.spec.js
 Playwright_Quick_Reference.md
+tests\fileuploaddownload.spec.js
+
+# Test fixture files
+resume.pdf
+photo.jpg
