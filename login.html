@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyStore - Login</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: linear-gradient(135deg, #667eea, #764ba2); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        
+        .login-container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); width: 450px; }
+        h1 { text-align: center; color: #333; margin-bottom: 30px; font-size: 2rem; }
+        
+        label { font-weight: 600; color: #555; display: block; margin-bottom: 5px; }
+        input[type="text"], input[type="password"] { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; margin-bottom: 15px; transition: border 0.3s; }
+        input[type="text"]:focus, input[type="password"]:focus { border-color: #667eea; outline: none; }
+        
+        .checkbox-group { display: flex; align-items: center; gap: 8px; margin: 15px 0; }
+        
+        select { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; margin-bottom: 15px; background: white; }
+        
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        button { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        #login-btn { background: #667eea; color: white; }
+        #login-btn:hover { background: #5a6fd6; transform: translateY(-2px); }
+        #reset-btn { background: #e0e0e0; color: #555; }
+        #reset-btn:hover { background: #d0d0d0; }
+        
+        .error-msg { background: #ffe0e0; color: #c0392b; padding: 12px; border-radius: 8px; margin-top: 15px; display: none; }
+        .success-msg { background: #d4edda; color: #155724; padding: 12px; border-radius: 8px; margin-top: 15px; display: none; }
+        
+        .extra-links { text-align: center; margin-top: 20px; }
+        .extra-links a {display:flex; color: #667eea; text-decoration: none; font-weight: 600; }
+        
+        iframe { width: 100%; border: 2px solid #e0e0e0; border-radius: 8px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        
+        <form id="login-form">
+            <label>Username:</label>
+            <input type="text" id="username" placeholder="Enter username" required>
+            
+            <label>Password:</label>
+            <input type="password" id="password" placeholder="Enter password" required>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="remember"> Remember Me
+            </div>
+            
+            <label>Role:</label>
+            <select id="role">
+                <option value="">Select Role</option>
+                <option value="admin">Admin</option>
+                <option value="customer">Customer</option>
+                <option value="vendor">Vendor</option>
+            </select>
+            
+            <div class="btn-group">
+                <button type="submit" id="login-btn">Login</button>
+                <button type="reset" id="reset-btn">Reset</button>
+            </div>
+        </form>
+        
+        <div class="error-msg" id="error-msg">❌ Invalid username or password!</div>
+        <div class="success-msg" id="success-msg">✅ Login successful! Redirecting...</div>
+        
+        <div class="extra-links">          
+            <a href="dashboard.html" target="_blank" id="dashboard-link">Open Dashboard (New Tab)</a>
+            <a href="index.html" target="_blank" id="register-link">Go back to Home</a>
+        
+        </div>
+        
+        <iframe src="terms.html" id="terms-frame" height="180"></iframe>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if(username === 'admin' && password === 'admin123') {
+                document.getElementById('success-msg').style.display = 'block';
+                document.getElementById('error-msg').style.display = 'none';
+                setTimeout(() => window.location.href = 'dashboard.html', 1000);
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+                document.getElementById('success-msg').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

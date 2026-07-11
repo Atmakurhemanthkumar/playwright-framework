@@ -1,0 +1,7 @@
+[
+    { "productName": "Laptop Pro", "expectedPrice": "$999" },
+    { "productName": "Wireless Mouse", "expectedPrice": "$25" },
+    { "productName": "T-Shirt Classic", "expectedPrice": "$19" },
+    { "productName": "JavaScript Book", "expectedPrice": "$45" },
+    { "productName": "Headphones", "expectedPrice": "$79" }
+]

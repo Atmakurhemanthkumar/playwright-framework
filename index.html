@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyStore - Home</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f6f9; }
+        
+        header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; text-align: center; }
+        header h1 { font-size: 2.5rem; margin-bottom: 15px; }
+        
+        nav { display: flex; justify-content: center; gap: 30px; }
+        nav a { color: white; text-decoration: none; font-size: 1.1rem; padding: 8px 20px; border: 2px solid white; border-radius: 25px; transition: all 0.3s; }
+        nav a:hover { background: white; color: #667eea; }
+        
+        main { max-width: 800px; margin: 80px auto; text-align: center; padding: 0 20px; }
+        main p { font-size: 1.5rem; color: #555; margin-bottom: 40px; }
+        
+        .features { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .feature-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); width: 200px; }
+        .feature-card h3 { color: #667eea; margin-bottom: 10px; }
+        .feature-card p { font-size: 0.9rem; color: #777; }
+        
+        footer { text-align: center; padding: 20px; background: #2d3436; color: #aaa; position: fixed; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🛒 Welcome to MyStore</h1>
+        <nav>
+            <a href="login.html">Login</a>
+            <a href="registration.html">Register</a>
+            <a href="products.html">Products</a>
+        </nav>
+    </header>
+    
+    <main>
+        <p>Your one-stop shop for everything!</p>
+        <div class="features">
+            <div class="feature-card">
+                <h3>🚀 Fast</h3>
+                <p>Lightning fast delivery</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Secure</h3>
+                <p>100% secure payments</p>
+            </div>
+            <div class="feature-card">
+                <h3>💬 Support</h3>
+                <p>24/7 customer support</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 MyStore. All rights reserved.</p>
+    </footer>
+</body>
+</html>

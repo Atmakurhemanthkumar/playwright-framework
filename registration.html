@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyStore - Register</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: linear-gradient(135deg, #667eea, #764ba2); min-height: 100vh; padding: 40px 20px; }
+        
+        .form-container { background: white; max-width: 600px; margin: 0 auto; padding: 40px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { text-align: center; color: #333; margin-bottom: 30px; }
+        
+        label { font-weight: 600; color: #555; display: block; margin: 15px 0 5px; }
+        .required::after { content: " *"; color: #e74c3c; }
+        
+        input[type="text"], input[type="email"], input[type="password"], select, textarea { width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; transition: border 0.3s; }
+        input:focus, select:focus, textarea:focus { border-color: #667eea; outline: none; }
+        
+        .radio-group, .checkbox-group { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 5px; }
+        .radio-group label, .checkbox-group label { font-weight: 400; display: inline; margin: 0; }
+        
+        input[type="file"] { margin-top: 5px; }
+        
+        textarea { resize: vertical; font-family: inherit; }
+        
+        .terms-check { display: flex; align-items: center; gap: 8px; margin: 20px 0; }
+        .terms-check a { color: #667eea; text-decoration: none; font-weight: 600; }
+        
+        .btn-group { display: flex; gap: 10px; margin-top: 25px; }
+        button { flex: 1; padding: 12px; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        #register-btn { background: #667eea; color: white; }
+        #register-btn:hover { background: #5a6fd6; transform: translateY(-2px); }
+        #reset-form { background: #e0e0e0; color: #555; }
+        #reset-form:hover { background: #d0d0d0; }
+        
+        .success-box { background: #d4edda; color: #155724; padding: 15px; border-radius: 10px; text-align: center; font-weight: 600; margin-top: 20px; display: none; }
+        
+        .error { color: #e74c3c; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>📝 Registration</h1>
+        
+        <form id="registration-form">
+            <label class="required">Full Name:</label>
+            <input type="text" id="fullname" placeholder="Enter full name" required>
+            
+            <label class="required">Email:</label>
+            <input type="email" id="email" placeholder="Enter email" required>
+            
+            <label class="required">Password:</label>
+            <input type="password" id="reg-password" placeholder="Min 6 characters" minlength="6">
+            
+            <label>Gender:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+            
+            <label>Country:</label>
+            <select id="country">
+                <option value="">Select Country</option>
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+                <option value="uk">UK</option>
+                <option value="australia">Australia</option>
+            </select>
+            
+            <label>Interests:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="interests" value="sports"> Sports</label>
+                <label><input type="checkbox" name="interests" value="music"> Music</label>
+                <label><input type="checkbox" name="interests" value="reading"> Reading</label>
+                <label><input type="checkbox" name="interests" value="travel"> Travel</label>
+            </div>
+            
+            <label>Upload Resume (PDF/DOC):</label>
+            <input type="file" id="resume" accept=".pdf,.doc,.docx">
+            
+            <label>Upload Photo (JPG/PNG):</label>
+            <input type="file" id="photo" accept=".jpg,.png">
+            
+            <label>Bio:</label>
+            <textarea id="bio" placeholder="Tell us about yourself..." rows="4"></textarea>
+            
+            <div class="terms-check">
+                <input type="checkbox" id="terms-agree">
+                <span>I agree to <a href="terms.html" target="_blank">Terms & Conditions</a></span>
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" id="register-btn">✅ Register</button>
+                <button type="reset" id="reset-form">🔄 Clear</button>
+            </div>
+        </form>
+        <a href="index.html" style="display:block; text-align:center; margin-top:15px; color:#667eea; text-decoration:none;">back to home</a>
+        <div class="success-box" id="registration-success">
+            🎉 Registration successful! Welcome aboard!
+        </div>
+    </div>
+   
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('registration-success').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

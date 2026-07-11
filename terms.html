@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terms & Conditions</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f9f9f9; padding: 20px; }
+        
+        .terms-box { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h2 { color: #333; margin-bottom: 15px; font-size: 1.2rem; }
+        p { color: #666; line-height: 1.6; margin-bottom: 15px; font-size: 0.9rem; }
+        
+        .checkbox-group { display: flex; align-items: center; gap: 8px; margin: 15px 0; }
+        
+        button { background: #667eea; color: white; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+        button:hover { background: #5a6fd6; }
+        
+        #terms-status { margin-top: 10px; font-weight: 600; font-size: 0.9rem; }
+        .accepted { color: #27ae60; }
+        .rejected { color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="terms-box">
+        <h2>📄 Terms & Conditions</h2>
+        <p>By using this site, you agree to our terms of service. We ensure your data is protected and never shared with third parties.</p>
+        <p>You must be at least 13 years old to use this service. All purchases are subject to our refund policy.</p>
+        
+        <div class="checkbox-group">
+            <input type="checkbox" id="accept-terms">
+            <label for="accept-terms">I accept the terms & conditions</label>
+        </div>
+        
+        <button id="continue-btn">Continue</button>
+        <p id="terms-status"></p>
+    </div>
+    
+    <script>
+        document.getElementById('continue-btn').addEventListener('click', function() {
+            const status = document.getElementById('terms-status');
+            if(document.getElementById('accept-terms').checked) {
+                status.textContent = '✅ Terms Accepted';
+                status.className = 'accepted';
+            } else {
+                status.textContent = '❌ Please accept terms to continue';
+                status.className = 'rejected';
+            }
+        });
+    </script>
+</body>
+</html>
