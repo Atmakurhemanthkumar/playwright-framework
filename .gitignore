@@ -10,7 +10,6 @@ tests\actions.spec.js
 tests\assertions.spec.js
 tests\checkboxes.spec.js
 tests\dropdown.spec.js
-tests\fileuploaddownload.spec.js
 tests\frames.spec.js
 tests\locators.spec.js
 tests\multipletabs.spec.js

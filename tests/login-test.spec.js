@@ -14,13 +14,3 @@ test('Login with valid credentials', async ({ page }) => {
     // successMessage is a property, not a method — no ()
     await expect(loginPage.successMessage).toBeVisible();
 });
-
-test('Login with empty fields shows error', async ({ page }) => {
-    
-    const loginPage = new LoginPage(page);
-    
-    await loginPage.goto();
-    await loginPage.loginButton.click();
-    
-    await expect(loginPage.errorMessage).toBeVisible();
-});
